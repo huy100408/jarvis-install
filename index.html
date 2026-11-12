@@ -347,6 +347,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:
         <span class="sub" id="dlMacName">Latest release · .tar.gz</span>
         <span class="mono" id="dlMacSha">sha256 checked by the installer</span>
       </a>
+      <a data-reveal class="dl" id="dlDmg" href="downloads/Jarvis.dmg" download>
+        <b>Mac installer</b>
+        <span class="sub">Jarvis.dmg · double-click Install Jarvis</span>
+        <span class="mono" id="dlDmgSha">sha256 checked on download</span>
+      </a>
       <a data-reveal class="dl" id="dlIpa" href="downloads/Jarvis.ipa" download>
         <b>iPhone &amp; iPad app</b>
         <span class="sub">Jarvis.ipa · sideload with AltStore, SideStore or Sideloadly</span>
@@ -373,6 +378,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:
       </div>
     </div>
     <div class="dl-row">
+      <a data-reveal class="dl" href="downloads/Jarvis-Setup.exe" download>
+        <b>Windows setup</b>
+        <span class="sub">Jarvis-Setup.exe · guided installer</span>
+        <span class="mono" id="dlExeSha">sha256 checked on download</span>
+      </a>
       <a data-reveal class="dl" href="downloads/Install-Jarvis.cmd" download>
         <b>Windows installer</b>
         <span class="sub">Install-Jarvis.cmd · double-click to install</span>
@@ -380,7 +390,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:
       </a>
       <div data-reveal class="dl">
         <b>Good to know</b>
-        <span class="sub">If Windows shows “Windows protected your PC”, choose More info, then Run anyway. On first start, open Settings and enter the server URL, model and API key of your AI provider. Jarvis opens in its own window and asks before any sensitive action.</span>
+        <span class="sub">If Windows shows “Windows protected your PC”, choose More info, then Run anyway. Just sign in with Google and start chatting (Free: 5 messages a day, 30 a month. Pro: unlimited). You can also use your own AI provider key in Settings. Jarvis opens in its own window and asks before any sensitive action.</span>
         <span class="mono">Update with: jarvis update</span>
       </div>
     </div>
@@ -396,7 +406,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px;max-width:900px;margin:0 auto">
       <div data-reveal class="plan">
         <div style="display:flex;justify-content:space-between;align-items:baseline"><span class="mono" style="font-size:12px;letter-spacing:.14em;color:var(--muted)">FREE</span><span style="font-size:30px;font-weight:600;letter-spacing:-.02em">0đ</span></div>
-        <div style="font-size:20px;font-weight:600">30 requests / month</div>
+        <div style="font-size:20px;font-weight:600">5 cloud messages / day · 30 / month</div>
         <div style="font-size:15px;line-height:1.55;color:var(--muted)">Standard Claude / local agent, web search, system telemetry.</div>
         <a href="#install" class="btn-ghost" style="margin-top:auto;padding:13px;border-radius:12px;text-align:center;font-weight:600">Download free</a>
       </div>
@@ -500,6 +510,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:
   });
   fetch('latest-windows.json', { cache: 'no-store' }).then(r => r.json()).then(w => {
     if (w.sha256) $('#dlWinSha').textContent = `sha256 ${w.sha256.slice(0, 8)}…${w.sha256.slice(-7)}`;
+    if (w.exe_sha256) $('#dlExeSha').textContent = `sha256 ${w.exe_sha256.slice(0, 8)}…${w.exe_sha256.slice(-7)}`;
+  }).catch(() => {});
+  fetch('latest-mac.json', { cache: 'no-store' }).then(r => r.json()).then(m => {
+    if (m.dmg_sha256) $('#dlDmgSha').textContent = `sha256 ${m.dmg_sha256.slice(0, 8)}…${m.dmg_sha256.slice(-7)}`;
   }).catch(() => {});
   $('#copyInstall').addEventListener('click', async e => {
     const btn = e.currentTarget, ok = await copyText(INSTALL);
