@@ -55,7 +55,7 @@ DATA=(
   "${HOME}/.config/jarvis"
   "${HOME}/Library/Preferences/${BUNDLE_ID}.plist"
 )
-KEYCHAIN=(com.jarvis.companion.auth com.jarvis.provider-settings com.jarvis.google-session com.jarvis.discord)
+KEYCHAIN=(com.jarvis.companion.auth com.jarvis.provider-settings com.jarvis.google-session com.jarvis.discord local.jarvis.bridge)
 
 TARGETS=("${PROGRAM[@]}")
 $KEEP || TARGETS+=("${DATA[@]}")

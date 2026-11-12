@@ -47,7 +47,7 @@
     $credentials = @()
     foreach ($line in @(cmdkey /list 2>$null)) {
         # Match on the value, not the label: cmdkey labels are translated.
-        if ($line -match '(?:^|\s)(\S*com\.jarvis\S*)\s*$') {
+        if ($line -match '(?:^|\s)(\S*(?:com\.jarvis|local\.jarvis)\S*)\s*$') {
             $credentials += ($Matches[1] -replace '^.*target=', '')
         }
     }
@@ -81,6 +81,9 @@
     Write-Host 'Stopping Jarvis...'
     Get-CimInstance Win32_Process -Filter "Name = 'python.exe' OR Name = 'pythonw.exe'" -ErrorAction SilentlyContinue |
         Where-Object { $_.CommandLine -and $_.CommandLine -like '*jarvis_server*' } |
+        ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
+    Get-CimInstance Win32_Process -Filter "Name = 'node.exe'" -ErrorAction SilentlyContinue |
+        Where-Object { $_.CommandLine -and $_.CommandLine -like '*jarvis-bridge*' -and $_.CommandLine -like '*cli.js*' } |
         ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
     Start-Sleep -Seconds 2
     Set-Location -LiteralPath $env:TEMP
