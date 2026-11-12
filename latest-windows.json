@@ -1,5 +1,6 @@
 {
- "version": "2026.11.12.0526-cd074ac3-win",
- "file": "releases/jarvis-windows-2026.11.12.0526-cd074ac3-win.zip",
- "sha256": "6a9821381bc3096971326be738d800e8a51a38416b4924f17011e3456f9b0a3c"
+ "version": "2026.11.12.0721-e6640ebb-win",
+ "file": "releases/jarvis-windows-2026.11.12.0721-e6640ebb-win.zip",
+ "sha256": "10af4c9e617faa9bfc1ea2063d1aea803d030451aad8b65b5ae732f5ded22740",
+ "exe_sha256": "920affa17d1062c8d76f6057654c12782ad6030a70c526773f62b898a66f5a77"
 }
