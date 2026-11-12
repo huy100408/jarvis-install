@@ -396,6 +396,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:
         <span class="mono">Update with: jarvis update</span>
       </div>
     </div>
+
+    <div id="uninstall" data-reveal style="margin:64px auto 0;max-width:860px">
+      <h3 style="margin:0 0 8px;font-size:20px;color:#fff">Uninstall</h3>
+      <p class="lead" style="margin:0 0 18px;font-size:15px">Removes Jarvis completely: the app, background services, the <code>jarvis</code> command, logs, settings, sign-in and saved keys. It lists everything first and asks before removing anything. Add <code>--keep-data</code> (Mac) or <code>-KeepData</code> (Windows) to keep your settings for a later reinstall. Python and Homebrew stay installed.</p>
+      <div class="cmds">
+        <div class="cmd"><div class="cmd-head"><span>MAC · TERMINAL</span><button class="btn-copy-sm" data-copy="jarvis uninstall">Copy</button></div><code>jarvis uninstall</code></div>
+        <div class="cmd"><div class="cmd-head"><span>MAC · WITHOUT THE JARVIS COMMAND</span><button class="btn-copy-sm" data-copy="curl -fsSL https://huy100408.github.io/jarvis-install/uninstall.sh | bash">Copy</button></div><code>curl -fsSL https://huy100408.github.io/jarvis-install/uninstall.sh | bash</code></div>
+        <div class="cmd"><div class="cmd-head"><span>WINDOWS · POWERSHELL</span><button class="btn-copy-sm" data-copy="irm https://huy100408.github.io/jarvis-install/uninstall.ps1 | iex">Copy</button></div><code>irm https://huy100408.github.io/jarvis-install/uninstall.ps1 | iex</code></div>
+      </div>
+      <p class="lead" style="margin:14px 0 0;font-size:14px">On Windows you can also use Settings &gt; Apps &gt; Jarvis &gt; Uninstall, or type <code>jarvis uninstall</code>.</p>
+    </div>
   </div>
 </section>
 
@@ -505,6 +516,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:
     btn.textContent = ok ? 'Copied' : 'Press ⌘C';
     clearTimeout(btn._t); btn._t = setTimeout(() => (btn.textContent = old), ms);
   }
+  document.querySelectorAll('[data-copy]').forEach(btn =>
+    btn.addEventListener('click', async () => flash(btn, await copyText(btn.dataset.copy))));
   $('#copyInstallWin').addEventListener('click', async e => {
     try { await navigator.clipboard.writeText($('#installCmdWin').textContent); } catch (err) { return; }
     e.target.textContent = 'Copied';
