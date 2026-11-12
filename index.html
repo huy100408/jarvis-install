@@ -6,7 +6,7 @@
 <title>JARVIS for Mac</title>
 <meta name="description" content="JARVIS sees your screen, moves the cursor, runs the tools and answers out loud. Runs on your Mac; anything sensitive waits for your approval on your iPhone.">
 <meta property="og:title" content="JARVIS for Mac">
-<meta property="og:description" content="Your Mac, at your command. One-line install for Apple Silicon.">
+<meta property="og:description" content="Your computer, at your command. One-line install for Apple Silicon Macs and Windows.">
 <meta property="og:image" content="assets/jarvis_hud.png">
 <meta name="theme-color" content="#05070b">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%2305070b%22/%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%227%22 fill=%22%2338bdf8%22/%3E%3C/svg%3E">
@@ -159,6 +159,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:
     <p data-intro="2">JARVIS sees your screen, moves the cursor, runs the tools and answers out loud. It runs on your Mac, and anything sensitive waits for your approval on your iPhone.</p>
     <div class="cta-row" data-intro="3">
       <a href="#install" class="btn-accent">Download for Mac <span style="font-size:18px;line-height:1">↓</span></a>
+      <a href="#windows" class="btn-ghost">Download for Windows</a>
       <a href="#features" class="btn-ghost">See how it works</a>
     </div>
   </div>
@@ -353,6 +354,36 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:
       </a>
     </div>
     <p class="mono" style="text-align:center;margin:22px 0 0;font-size:12px;color:var(--dim)">Already installed? Run <span style="color:var(--muted)">jarvis update</span></p>
+
+    <div id="windows" data-reveal style="scroll-margin-top:90px;text-align:center;max-width:720px;margin:96px auto 32px;display:flex;flex-direction:column;gap:14px;align-items:center">
+      <p class="eyebrow">WINDOWS</p>
+      <h2 class="h2" style="font-size:clamp(30px,4vw,52px)">Jarvis for Windows 10 and 11.</h2>
+      <p class="lead" style="max-width:580px">Download the installer and double-click it, or paste the command into PowerShell. It adds Python 3.12 if needed, installs Jarvis for your user account without administrator rights, and puts Jarvis in the Start Menu and on the desktop.</p>
+    </div>
+    <div data-reveal class="terminal">
+      <div style="display:flex;align-items:center;gap:7px;padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.06)">
+        <span class="dots"><i></i><i></i><i></i></span>
+        <span class="mono" style="margin:0 auto;color:var(--dim);font-size:12px">Windows PowerShell</span>
+      </div>
+      <div class="mono" style="padding:20px 22px;font-size:13.5px;line-height:1.75">
+        <div style="display:flex;flex-wrap:wrap;align-items:flex-start;gap:12px;padding:12px 12px 12px 16px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)">
+          <code style="flex:1 1 300px;color:var(--fg);word-break:break-all;font:inherit"><span style="color:var(--accent)">PS&gt; </span><span id="installCmdWin">irm https://huy100408.github.io/jarvis-install/install.ps1 | iex</span></code>
+          <button id="copyInstallWin" style="padding:7px 14px;border-radius:8px;border:none;background:var(--accent);color:var(--bg);font:600 13px Geist,sans-serif;cursor:pointer">Copy</button>
+        </div>
+      </div>
+    </div>
+    <div class="dl-row">
+      <a data-reveal class="dl" href="downloads/Install-Jarvis.cmd" download>
+        <b>Windows installer</b>
+        <span class="sub">Install-Jarvis.cmd · double-click to install</span>
+        <span class="mono" id="dlWinSha">sha256 checked by the installer</span>
+      </a>
+      <div data-reveal class="dl">
+        <b>Good to know</b>
+        <span class="sub">If Windows shows “Windows protected your PC”, choose More info, then Run anyway. On first start, open Settings and enter the server URL, model and API key of your AI provider. Jarvis opens in its own window and asks before any sensitive action.</span>
+        <span class="mono">Update with: jarvis update</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -391,7 +422,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:
 <footer style="border-top:1px solid rgba(255,255,255,.06);padding:28px 24px">
   <div class="wrap" style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-size:13px;color:var(--dim)">
     <span style="letter-spacing:.28em;color:var(--muted)">JARVIS</span>
-    <span id="footVersion">Self-hosted on your Mac · Apple Silicon</span>
+    <span id="footVersion">Self-hosted on your Mac or Windows PC</span>
   </div>
 </footer>
 </div>
@@ -462,6 +493,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:
     btn.textContent = ok ? 'Copied' : 'Press ⌘C';
     clearTimeout(btn._t); btn._t = setTimeout(() => (btn.textContent = old), ms);
   }
+  $('#copyInstallWin').addEventListener('click', async e => {
+    try { await navigator.clipboard.writeText($('#installCmdWin').textContent); } catch (err) { return; }
+    e.target.textContent = 'Copied';
+    setTimeout(() => { e.target.textContent = 'Copy'; }, 1800);
+  });
+  fetch('latest-windows.json', { cache: 'no-store' }).then(r => r.json()).then(w => {
+    if (w.sha256) $('#dlWinSha').textContent = `sha256 ${w.sha256.slice(0, 8)}…${w.sha256.slice(-7)}`;
+  }).catch(() => {});
   $('#copyInstall').addEventListener('click', async e => {
     const btn = e.currentTarget, ok = await copyText(INSTALL);
     if (!ok) getSelection().selectAllChildren($('#installCmd'));
@@ -541,7 +580,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:
     $('#dlMacName').textContent = `jarvis-${short} · .tar.gz`;
     if (sha) $('#dlMacSha').textContent = `sha256 ${sha.slice(0, 8)}…${sha.slice(-7)}`;
     $('#buildBadge').textContent = `Build ${date} for Apple Silicon`;
-    $('#footVersion').textContent = `Self-hosted on your Mac · Apple Silicon · v${short}`;
+    $('#footVersion').textContent = `Self-hosted on your Mac or Windows PC · v${short}`;
   }).catch(() => {});
   fetch('downloads/Jarvis.ipa', { method: 'HEAD' }).then(r => { if (!r.ok) throw 0; }).catch(() => {
     const a = $('#dlIpa'); a.removeAttribute('href'); a.removeAttribute('download');
