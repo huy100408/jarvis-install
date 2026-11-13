@@ -16,5 +16,29 @@
       <image:loc>https://huy100408.github.io/jarvis-install/assets/jarvis-icon-256.png</image:loc>
       <image:title>JARVIS Official Logo</image:title>
     </image:image>
+    <xhtml:link rel="alternate" hreflang="en" href="https://huy100408.github.io/jarvis-install/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://huy100408.github.io/jarvis-install/vi/"/>
+  </url>
+  <url>
+    <loc>https://huy100408.github.io/jarvis-install/vi/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://huy100408.github.io/jarvis-install/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://huy100408.github.io/jarvis-install/vi/"/>
+  </url>
+  <url>
+    <loc>https://huy100408.github.io/jarvis-install/vi/huong-dan-cai-dat.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://huy100408.github.io/jarvis-install/guides/install-jarvis-mac.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://huy100408.github.io/jarvis-install/guides/install-jarvis-windows.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <priority>0.8</priority>
   </url>
 </urlset>

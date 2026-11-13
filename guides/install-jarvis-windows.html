@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Install JARVIS AI Assistant on Windows 10 and 11</title>
+<meta name="description" content="Step-by-step guide to installing the JARVIS AI assistant on Windows 10 or 11: run Jarvis-Setup.exe or one PowerShell command, no administrator rights needed, then sign in with Google.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://huy100408.github.io/jarvis-install/guides/install-jarvis-windows.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Install JARVIS AI Assistant on Windows">
+<meta property="og:description" content="Install JARVIS on Windows 10 or 11 without administrator rights.">
+<meta property="og:image" content="https://huy100408.github.io/jarvis-install/assets/jarvis_hud.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to install JARVIS on Windows",
+  "totalTime": "PT2M",
+  "step": [
+    {"@type": "HowToStep", "name": "Download", "text": "Download Jarvis-Setup.exe from the JARVIS site."},
+    {"@type": "HowToStep", "name": "Run the installer", "text": "Double-click it. If Windows shows 'Windows protected your PC', choose More info, then Run anyway. Or run irm https://huy100408.github.io/jarvis-install/install.ps1 | iex in PowerShell."},
+    {"@type": "HowToStep", "name": "Sign in", "text": "Open Jarvis from the Start Menu and sign in with Google."}
+  ]
+}
+</script>
+<meta name="theme-color" content="#05070b">
+<link rel="icon" type="image/svg+xml" href="../assets/jarvis-logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/pages.css">
+</head>
+<body>
+<nav>
+  <div class="navbar">
+    <a href="../" class="brand"><img src="../assets/jarvis-logo.svg" alt="JARVIS logo">JARVIS</a>
+    <div class="navlinks">
+      <a href="install-jarvis-mac.html">Mac guide</a>
+      <a href="../#faq">FAQ</a>
+      <a href="../vi/huong-dan-cai-dat.html" class="lang" hreflang="vi" lang="vi">Tiếng Việt</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <p class="eyebrow">GUIDE · WINDOWS</p>
+  <h1>How to install JARVIS on Windows 10 and 11</h1>
+  <p class="lead">JARVIS is an AI assistant for your PC that answers out loud, searches the web and asks before any sensitive action. It installs for your user account in about two minutes, with no administrator rights and no API key.</p>
+
+  <h2>Option A: the setup program (easiest)</h2>
+  <ol>
+    <li>Download <a href="../downloads/Jarvis-Setup.exe" download>Jarvis-Setup.exe</a>.</li>
+    <li>Double-click it.</li>
+    <li>If Windows shows <strong>“Windows protected your PC”</strong>, choose <strong>More info</strong>, then <strong>Run anyway</strong>.</li>
+    <li>Follow the steps. Jarvis appears in the Start Menu and on your desktop.</li>
+  </ol>
+
+  <h2>Option B: one PowerShell command</h2>
+  <p>Open PowerShell and paste:</p>
+  <pre>irm https://huy100408.github.io/jarvis-install/install.ps1 | iex</pre>
+  <p>It adds Python 3.12 if needed and installs Jarvis for your account. Prefer double-clicking? <a href="../downloads/Install-Jarvis.cmd" download>Install-Jarvis.cmd</a> does the same thing.</p>
+
+  <h2>Sign in and start chatting</h2>
+  <ol>
+    <li>Open Jarvis. It runs in its own window.</li>
+    <li>Sign in with Google. The free plan includes 5 cloud messages a day, 30 a month. Pro is unlimited.</li>
+    <li>Want to use your own AI provider? Add your key in Settings.</li>
+  </ol>
+  <div class="note"><p>Jarvis asks before any sensitive action, such as passwords, payments or destructive commands.</p></div>
+
+  <h2>Update or uninstall</h2>
+  <pre>jarvis update
+jarvis uninstall</pre>
+  <p>You can also remove it from <strong>Settings → Apps → Jarvis → Uninstall</strong>. Add <code>-KeepData</code> to the uninstall command to keep your settings. Without the <code>jarvis</code> command:</p>
+  <pre>irm https://huy100408.github.io/jarvis-install/uninstall.ps1 | iex</pre>
+
+  <div class="cta">
+    <a class="btn" href="../downloads/Jarvis-Setup.exe" download>Download for Windows</a>
+    <a class="btn-ghost" href="install-jarvis-mac.html">Installing on Mac?</a>
+  </div>
+</main>
+
+<footer>
+  <div class="row">
+    <span>JARVIS</span>
+    <a href="../">Home</a>
+    <a href="install-jarvis-mac.html">Install on Mac</a>
+    <a href="../vi/" hreflang="vi">Tiếng Việt</a>
+  </div>
+</footer>
+</body>
+</html>

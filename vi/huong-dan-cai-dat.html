@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hướng dẫn cài đặt JARVIS trên Mac và Windows</title>
+<meta name="description" content="Cách cài trợ lý AI JARVIS trên Mac (chip M-series) và Windows 10/11 từng bước: tải bộ cài, cấp quyền, đăng nhập Google, cập nhật và gỡ cài đặt.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://huy100408.github.io/jarvis-install/vi/huong-dan-cai-dat.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Hướng dẫn cài đặt JARVIS trên Mac và Windows">
+<meta property="og:description" content="Cài trợ lý AI JARVIS trong khoảng hai phút, từng bước cho Mac và Windows.">
+<meta property="og:image" content="https://huy100408.github.io/jarvis-install/assets/jarvis_hud.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Cài đặt JARVIS trên Mac và Windows",
+  "inLanguage": "vi",
+  "totalTime": "PT2M",
+  "step": [
+    {"@type": "HowToStep", "name": "Tải bộ cài", "text": "Tải Jarvis.dmg cho Mac hoặc Jarvis-Setup.exe cho Windows từ trang JARVIS."},
+    {"@type": "HowToStep", "name": "Chạy bộ cài", "text": "Mở bộ cài và làm theo hướng dẫn. Hoặc dùng lệnh cài đặt trong Terminal (Mac) hay PowerShell (Windows)."},
+    {"@type": "HowToStep", "name": "Cấp quyền", "text": "Trên Mac, bật Ghi màn hình và Trợ năng cho Jarvis trong Cài đặt hệ thống > Quyền riêng tư & Bảo mật."},
+    {"@type": "HowToStep", "name": "Đăng nhập", "text": "Đăng nhập bằng Google và bắt đầu trò chuyện với JARVIS."}
+  ]
+}
+</script>
+<meta name="theme-color" content="#05070b">
+<link rel="icon" type="image/svg+xml" href="../assets/jarvis-logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap&subset=vietnamese" rel="stylesheet">
+<link rel="stylesheet" href="../assets/pages.css">
+</head>
+<body>
+<nav>
+  <div class="navbar">
+    <a href="./" class="brand"><img src="../assets/jarvis-logo.svg" alt="Logo JARVIS">JARVIS</a>
+    <div class="navlinks">
+      <a href="#mac">Mac</a>
+      <a href="#windows">Windows</a>
+      <a href="#cap-nhat">Cập nhật</a>
+      <a href="../" class="lang" hreflang="en" lang="en">English</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <p class="eyebrow">HƯỚNG DẪN</p>
+  <h1>Hướng dẫn cài đặt JARVIS trên Mac và Windows</h1>
+  <p class="lead">Cài trợ lý AI JARVIS mất khoảng hai phút. Bạn không cần API key: chỉ cần đăng nhập bằng Google là dùng được ngay (miễn phí 5 tin nhắn mỗi ngày).</p>
+
+  <h2 id="mac">Cài JARVIS trên Mac</h2>
+  <h3>Yêu cầu</h3>
+  <ul>
+    <li><strong>Mac dùng chip Apple M-series.</strong> JARVIS không chạy trên Mac Intel. Để kiểm tra, mở Terminal và gõ <code>uname -m</code>. Nếu kết quả là <code>arm64</code> thì máy bạn dùng được.</li>
+    <li>Kết nối Internet trong lúc cài.</li>
+  </ul>
+  <h3>Cách 1: dùng bộ cài .dmg (dễ nhất)</h3>
+  <ol>
+    <li>Tải <a href="../downloads/Jarvis.dmg" download>Jarvis.dmg</a>.</li>
+    <li>Mở file vừa tải và kéo Jarvis vào thư mục Applications.</li>
+    <li>Mở Jarvis từ Applications hoặc Launchpad.</li>
+  </ol>
+  <h3>Cách 2: dùng lệnh trong Terminal</h3>
+  <p>Dán lệnh sau vào Terminal. Lệnh này cài mọi thứ, khởi động các dịch vụ chạy nền và mở Jarvis.app:</p>
+  <pre>curl -fsSL https://huy100408.github.io/jarvis-install/install.sh | bash</pre>
+  <p>Nếu máy chưa có Python 3.12 hoặc Node.js, trình cài đặt sẽ tự cài qua Homebrew. Nếu chưa có Homebrew, hãy cài nó trước tại <a href="https://brew.sh" rel="noopener">brew.sh</a>.</p>
+  <h3>Cấp quyền cho JARVIS</h3>
+  <p>JARVIS cần nhìn màn hình và điều khiển chuột, bàn phím. Khi macOS hỏi, vào <strong>Cài đặt hệ thống → Quyền riêng tư &amp; Bảo mật</strong> và bật Jarvis trong cả hai mục:</p>
+  <ul>
+    <li><strong>Ghi màn hình</strong> (Screen Recording)</li>
+    <li><strong>Trợ năng</strong> (Accessibility)</li>
+  </ul>
+
+  <h2 id="windows">Cài JARVIS trên Windows 10 và 11</h2>
+  <h3>Cách 1: dùng bộ cài .exe</h3>
+  <ol>
+    <li>Tải <a href="../downloads/Jarvis-Setup.exe" download>Jarvis-Setup.exe</a> và nhấp đúp để chạy.</li>
+    <li>Nếu Windows hiện “Windows protected your PC”, chọn <strong>More info</strong> rồi <strong>Run anyway</strong>.</li>
+    <li>Làm theo hướng dẫn. JARVIS được cài cho tài khoản của bạn, không cần quyền quản trị, và có biểu tượng trong Start Menu và trên màn hình chính.</li>
+  </ol>
+  <h3>Cách 2: dùng lệnh trong PowerShell</h3>
+  <pre>irm https://huy100408.github.io/jarvis-install/install.ps1 | iex</pre>
+  <p>Trình cài đặt tự thêm Python 3.12 nếu máy chưa có.</p>
+
+  <h2 id="dang-nhap">Đăng nhập và bắt đầu</h2>
+  <ol>
+    <li>Mở JARVIS và đăng nhập bằng tài khoản Google.</li>
+    <li>Gõ hoặc bấm để nói, ví dụ: “Mở Safari và tìm thời tiết hôm nay”.</li>
+    <li>Gói miễn phí cho 5 tin nhắn mỗi ngày, 30 tin nhắn mỗi tháng. Muốn không giới hạn, nâng cấp lên Pro ngay trong ứng dụng qua MoMo, VietQR hoặc Napas 247.</li>
+  </ol>
+  <div class="note"><p>Mọi thao tác nhạy cảm (mật khẩu, thanh toán, lệnh xóa dữ liệu) đều khiến JARVIS dừng lại và hỏi bạn trước.</p></div>
+
+  <h2 id="cap-nhat">Cập nhật JARVIS</h2>
+  <p>Mở Terminal (Mac) hoặc PowerShell (Windows) và chạy:</p>
+  <pre>jarvis update</pre>
+
+  <h2 id="go-cai-dat">Gỡ cài đặt</h2>
+  <p>Lệnh gỡ cài đặt liệt kê mọi thứ trước và hỏi bạn trước khi xóa. Thêm <code>--keep-data</code> (Mac) hoặc <code>-KeepData</code> (Windows) nếu muốn giữ lại cài đặt.</p>
+  <pre>jarvis uninstall</pre>
+  <p>Trên Windows, bạn cũng có thể vào <strong>Settings → Apps → Jarvis → Uninstall</strong>.</p>
+
+  <div class="cta">
+    <a class="btn" href="../downloads/Jarvis.dmg" download>Tải cho Mac</a>
+    <a class="btn-ghost" href="../downloads/Jarvis-Setup.exe" download>Tải cho Windows</a>
+  </div>
+</main>
+
+<footer>
+  <div class="row">
+    <span>JARVIS</span>
+    <a href="./">Trang chủ (Tiếng Việt)</a>
+    <a href="../guides/install-jarvis-mac.html" hreflang="en">Install on Mac</a>
+    <a href="../guides/install-jarvis-windows.html" hreflang="en">Install on Windows</a>
+    <a href="../" hreflang="en">English</a>
+  </div>
+</footer>
+</body>
+</html>

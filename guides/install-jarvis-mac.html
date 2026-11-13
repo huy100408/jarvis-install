@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Install JARVIS AI Assistant on Mac (Apple Silicon)</title>
+<meta name="description" content="Step-by-step guide to installing the JARVIS AI assistant on an Apple Silicon Mac: download the DMG or use one Terminal command, grant Screen Recording and Accessibility, sign in with Google.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://huy100408.github.io/jarvis-install/guides/install-jarvis-mac.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Install JARVIS AI Assistant on Mac">
+<meta property="og:description" content="Install JARVIS on an Apple Silicon Mac in about two minutes.">
+<meta property="og:image" content="https://huy100408.github.io/jarvis-install/assets/jarvis_hud.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to install JARVIS on a Mac",
+  "totalTime": "PT2M",
+  "supply": [{"@type": "HowToSupply", "name": "Apple Silicon (M-series) Mac"}],
+  "step": [
+    {"@type": "HowToStep", "name": "Check your Mac", "text": "Run uname -m in Terminal. It must print arm64."},
+    {"@type": "HowToStep", "name": "Install", "text": "Open Jarvis.dmg and drag Jarvis to Applications, or run curl -fsSL https://huy100408.github.io/jarvis-install/install.sh | bash in Terminal."},
+    {"@type": "HowToStep", "name": "Grant permissions", "text": "Turn on Screen Recording and Accessibility for Jarvis in System Settings > Privacy & Security."},
+    {"@type": "HowToStep", "name": "Sign in", "text": "Open Jarvis and sign in with Google."}
+  ]
+}
+</script>
+<meta name="theme-color" content="#05070b">
+<link rel="icon" type="image/svg+xml" href="../assets/jarvis-logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/pages.css">
+</head>
+<body>
+<nav>
+  <div class="navbar">
+    <a href="../" class="brand"><img src="../assets/jarvis-logo.svg" alt="JARVIS logo">JARVIS</a>
+    <div class="navlinks">
+      <a href="install-jarvis-windows.html">Windows guide</a>
+      <a href="../#faq">FAQ</a>
+      <a href="../vi/huong-dan-cai-dat.html" class="lang" hreflang="vi" lang="vi">Tiếng Việt</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <p class="eyebrow">GUIDE · MAC</p>
+  <h1>How to install JARVIS on a Mac</h1>
+  <p class="lead">JARVIS is an AI assistant that sees your screen, moves the cursor, runs tools and answers out loud. Installing it on a Mac takes about two minutes, and you don't need an API key.</p>
+
+  <h2>1. Check that your Mac is supported</h2>
+  <p>JARVIS runs only on Macs with an <strong>Apple M-series chip</strong>. The installer stops if it detects an Intel Mac. Open Terminal and run:</p>
+  <pre>uname -m</pre>
+  <p>If it prints <code>arm64</code>, you're good.</p>
+
+  <h2>2. Install JARVIS</h2>
+  <h3>Option A: the DMG installer (easiest)</h3>
+  <ol>
+    <li>Download <a href="../downloads/Jarvis.dmg" download>Jarvis.dmg</a>.</li>
+    <li>Open it and drag Jarvis into Applications.</li>
+    <li>Open Jarvis from Applications or Launchpad.</li>
+  </ol>
+  <h3>Option B: one Terminal command</h3>
+  <p>Paste this into Terminal. It installs everything, starts the background services and opens Jarvis.app:</p>
+  <pre>curl -fsSL https://huy100408.github.io/jarvis-install/install.sh | bash</pre>
+  <p>If Python 3.12 or Node.js is missing, the installer adds them with Homebrew. If you don't have Homebrew, install it first from <a href="https://brew.sh" rel="noopener">brew.sh</a>. Every download is checked against its sha256 before it is installed.</p>
+
+  <h2>3. Grant Screen Recording and Accessibility</h2>
+  <p>JARVIS needs to see the screen and control the mouse and keyboard. When macOS asks, open <strong>System Settings → Privacy &amp; Security</strong> and turn Jarvis on under both:</p>
+  <ul>
+    <li><strong>Screen Recording</strong></li>
+    <li><strong>Accessibility</strong></li>
+  </ul>
+  <p>You can jump straight to each panel from Terminal:</p>
+  <pre>open "x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture"
+open "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility"</pre>
+
+  <h2>4. Sign in and give it a task</h2>
+  <ol>
+    <li>Sign in with Google. The free plan includes 5 cloud messages a day, 30 a month.</li>
+    <li>Type or push to talk, for example: “Open Safari and find the latest version of Expo.”</li>
+    <li>JARVIS reads the screen, makes one move, checks the result, then continues.</li>
+  </ol>
+  <div class="note"><p>Passwords, payments, keychain access and destructive commands always pause JARVIS and ask you first.</p></div>
+
+  <h2>Optional: control your Mac from your iPhone</h2>
+  <p>Sideload <a href="../downloads/Jarvis.ipa" download>Jarvis.ipa</a> with AltStore, SideStore or Sideloadly. Your phone and Mac need to be on the same network or Tailscale. In the app, enter your Mac's IP with port <code>20129</code>. To find the IP:</p>
+  <pre>ipconfig getifaddr en0</pre>
+
+  <h2>Update or uninstall</h2>
+  <pre>jarvis update
+jarvis uninstall</pre>
+  <p>The uninstaller lists everything first and asks before removing anything. Add <code>--keep-data</code> to keep your settings.</p>
+
+  <div class="cta">
+    <a class="btn" href="../downloads/Jarvis.dmg" download>Download for Mac</a>
+    <a class="btn-ghost" href="install-jarvis-windows.html">Installing on Windows?</a>
+  </div>
+</main>
+
+<footer>
+  <div class="row">
+    <span>JARVIS</span>
+    <a href="../">Home</a>
+    <a href="install-jarvis-windows.html">Install on Windows</a>
+    <a href="../vi/" hreflang="vi">Tiếng Việt</a>
+  </div>
+</footer>
+</body>
+</html>
