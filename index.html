@@ -3,11 +3,110 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>JARVIS for Mac</title>
-<meta name="description" content="JARVIS sees your screen, moves the cursor, runs the tools and answers out loud. Runs on your Mac; anything sensitive waits for your approval on your iPhone.">
-<meta property="og:title" content="JARVIS for Mac">
-<meta property="og:description" content="Your computer, at your command. One-line install for Apple Silicon Macs and Windows.">
-<meta property="og:image" content="assets/jarvis_hud.png">
+<title>JARVIS — Autonomous AI Assistant for Mac & Windows</title>
+<meta name="description" content="JARVIS is an autonomous desktop AI assistant for Mac and Windows. It sees your screen, moves your cursor, executes terminal tools, answers out loud, and verifies sensitive actions via iPhone gatekeeper.">
+<meta name="keywords" content="JARVIS AI, autonomous AI assistant, desktop AI agent, Mac AI assistant, Windows AI assistant, computer vision AI, screen control AI, voice assistant desktop, local AI agent, open source jarvis">
+<meta name="author" content="JARVIS">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://huy100408.github.io/jarvis-install/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://huy100408.github.io/jarvis-install/">
+<meta property="og:title" content="JARVIS — Autonomous AI Assistant for Mac & Windows">
+<meta property="og:description" content="Your computer, at your command. Autonomous desktop AI assistant with screen vision, cursor control, voice, and iPhone gatekeeper security.">
+<meta property="og:image" content="https://huy100408.github.io/jarvis-install/assets/jarvis_hud.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="JARVIS">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://huy100408.github.io/jarvis-install/">
+<meta name="twitter:title" content="JARVIS — Autonomous AI Assistant for Mac & Windows">
+<meta name="twitter:description" content="Your computer, at your command. Autonomous desktop AI assistant with screen vision, cursor control, voice, and iPhone gatekeeper security.">
+<meta name="twitter:image" content="https://huy100408.github.io/jarvis-install/assets/jarvis_hud.png">
+
+<!-- Structured Data (JSON-LD) for Google Rich Snippets -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://huy100408.github.io/jarvis-install/#software",
+      "name": "JARVIS",
+      "operatingSystem": "macOS 14+, Windows 10, Windows 11",
+      "applicationCategory": "UtilitiesApplication, ProductivityApplication",
+      "description": "Autonomous desktop AI assistant that observes your screen, operates the mouse and keyboard, executes CLI tools, speaks naturally, and guards sensitive actions with iPhone gatekeeper verification.",
+      "softwareVersion": "2026.11.12",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free Tier",
+          "price": "0",
+          "priceCurrency": "VND",
+          "description": "5 cloud messages/day, standard local AI agent and telemetry"
+        },
+        {
+          "@type": "Offer",
+          "name": "Pro & Family Tier",
+          "price": "300000",
+          "priceCurrency": "VND",
+          "description": "Unlimited requests, family pool of 3,000 tasks/month for up to 5 members"
+        }
+      ],
+      "image": "https://huy100408.github.io/jarvis-install/assets/jarvis_hud.png",
+      "downloadUrl": "https://huy100408.github.io/jarvis-install/downloads/Jarvis.dmg"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://huy100408.github.io/jarvis-install/#website",
+      "url": "https://huy100408.github.io/jarvis-install/",
+      "name": "JARVIS Autonomous AI Assistant",
+      "description": "Official download and documentation portal for JARVIS Autonomous AI Assistant for Mac and Windows."
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://huy100408.github.io/jarvis-install/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is JARVIS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "JARVIS is an autonomous AI desktop assistant designed for macOS and Windows. It sees your screen via computer vision, maneuvers the cursor and keyboard, runs system tools, and answers aloud in natural speech."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does JARVIS safely execute computer actions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "JARVIS incorporates a Human-in-the-Loop (HITL) Security Gatekeeper. Any destructive shell command, payment, keychain access, or credential request automatically pauses execution and routes an approval prompt to your iPhone or iPad before proceeding."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I install JARVIS on Mac and Windows?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On macOS (Apple Silicon M-series), download the Jarvis.dmg installer or run 'curl -fsSL https://huy100408.github.io/jarvis-install/install.sh | bash' in Terminal. On Windows 10/11, run the Jarvis-Setup.exe installer or execute 'irm https://huy100408.github.io/jarvis-install/install.ps1 | iex' in PowerShell."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does JARVIS require an API key to get started?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. JARVIS includes managed cloud AI access upon signing in with Google (5 free messages per day / 30 per month). You can also provide your own custom API keys in Settings at any time."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 <meta name="theme-color" content="#05070b">
 <link rel="icon" type="image/svg+xml" href="assets/jarvis-logo.svg">
 <link rel="icon" type="image/png" sizes="256x256" href="assets/jarvis-icon-256.png">
@@ -142,11 +241,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:
 
 <nav>
   <div class="navbar">
-    <a href="#top" class="brand"><img src="assets/jarvis-logo.svg" alt="">JARVIS</a>
+    <a href="#top" class="brand"><img src="assets/jarvis-logo.svg" alt="JARVIS AI Logo">JARVIS</a>
     <div class="navlinks">
       <a href="#features">Features</a>
       <a href="#themes">Themes</a>
       <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
     </div>
     <a href="#install" class="btn-white">Download</a>
   </div>
@@ -206,7 +306,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:
         <div class="vis" data-vis="1" style="gap:28px;padding:32px">
           <div style="position:relative;width:min(240px,46%);aspect-ratio:9/19.5;border-radius:36px;padding:8px;background:#1a1d24;border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 80px rgba(0,0,0,.6)">
             <div style="width:100%;height:100%;border-radius:29px;overflow:hidden;position:relative;background:#000">
-              <img src="assets/jarvis_hud.png" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:62% 50%">
+              <img src="assets/jarvis_hud.png" alt="JARVIS Mobile HUD Live Screen Vision" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:62% 50%">
               <div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:34%;height:20px;border-radius:999px;background:#000"></div>
               <div class="mono" style="position:absolute;left:10px;right:10px;bottom:12px;display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:12px;background:rgba(10,12,16,.82);backdrop-filter:blur(8px);font-size:10px;color:#dfe4ea">
                 <span style="display:flex;align-items:center;gap:6px"><span style="width:6px;height:6px;border-radius:50%;background:#30d158"></span>LIVE</span><span>24 fps</span>
@@ -430,6 +530,37 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:
         <a href="#install" style="margin-top:auto;padding:13px;border-radius:12px;background:#ff9f0a;text-align:center;color:#1a0f00;font-weight:600">Get Pro</a>
         <div class="mono" style="font-size:11px;color:var(--dim);text-align:center">Install, sign in with Google, then upgrade in the app · MoMo · VietQR · Napas 247</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding:100px 24px 60px">
+  <div class="wrap" style="max-width:860px;margin:0 auto">
+    <div data-reveal style="text-align:center;margin-bottom:44px">
+      <p class="eyebrow" style="margin-bottom:12px">FREQUENTLY ASKED QUESTIONS</p>
+      <h2 class="h2" style="font-size:clamp(32px,4.2vw,54px)">Everything you need to know.</h2>
+    </div>
+    <div data-reveal style="display:flex;flex-direction:column;gap:14px">
+      <details style="padding:22px;border-radius:16px;background:var(--panel);border:1px solid var(--line);cursor:pointer">
+        <summary style="font-size:18px;font-weight:600;color:#fff;list-style:none;display:flex;justify-content:space-between;align-items:center">What is JARVIS?<span style="color:var(--accent);font-size:20px">+</span></summary>
+        <p style="margin:14px 0 0;font-size:15px;line-height:1.6;color:var(--muted)">JARVIS is an autonomous AI desktop assistant designed for macOS and Windows. It combines screen vision, mouse and keyboard automation, local terminal tools, and natural voice conversations into a single desktop application.</p>
+      </details>
+      <details style="padding:22px;border-radius:16px;background:var(--panel);border:1px solid var(--line);cursor:pointer">
+        <summary style="font-size:18px;font-weight:600;color:#fff;list-style:none;display:flex;justify-content:space-between;align-items:center">How does JARVIS safely execute computer actions?<span style="color:var(--accent);font-size:20px">+</span></summary>
+        <p style="margin:14px 0 0;font-size:15px;line-height:1.6;color:var(--muted)">JARVIS incorporates a Human-in-the-Loop (HITL) Security Gatekeeper. Any destructive shell command, payment, keychain access, or credential request automatically pauses execution and routes an approval prompt to your iPhone or iPad before proceeding.</p>
+      </details>
+      <details style="padding:22px;border-radius:16px;background:var(--panel);border:1px solid var(--line);cursor:pointer">
+        <summary style="font-size:18px;font-weight:600;color:#fff;list-style:none;display:flex;justify-content:space-between;align-items:center">How do I install JARVIS on Mac and Windows?<span style="color:var(--accent);font-size:20px">+</span></summary>
+        <p style="margin:14px 0 0;font-size:15px;line-height:1.6;color:var(--muted)">On macOS (Apple Silicon M-series), download the <code>Jarvis.dmg</code> installer or paste <code>curl -fsSL https://huy100408.github.io/jarvis-install/install.sh | bash</code> into Terminal. On Windows 10 and 11, run <code>Jarvis-Setup.exe</code> or execute <code>irm https://huy100408.github.io/jarvis-install/install.ps1 | iex</code> in PowerShell.</p>
+      </details>
+      <details style="padding:22px;border-radius:16px;background:var(--panel);border:1px solid var(--line);cursor:pointer">
+        <summary style="font-size:18px;font-weight:600;color:#fff;list-style:none;display:flex;justify-content:space-between;align-items:center">Does JARVIS require an API key to get started?<span style="color:var(--accent);font-size:20px">+</span></summary>
+        <p style="margin:14px 0 0;font-size:15px;line-height:1.6;color:var(--muted)">No. JARVIS includes managed cloud AI access upon signing in with Google (5 free messages per day / 30 per month). You can also link your own custom AI provider keys (Anthropic Claude, OpenAI, Antigravity AI) in Settings at any time.</p>
+      </details>
+      <details style="padding:22px;border-radius:16px;background:var(--panel);border:1px solid var(--line);cursor:pointer">
+        <summary style="font-size:18px;font-weight:600;color:#fff;list-style:none;display:flex;justify-content:space-between;align-items:center">Can I control my desktop from my iPhone?<span style="color:var(--accent);font-size:20px">+</span></summary>
+        <p style="margin:14px 0 0;font-size:15px;line-height:1.6;color:var(--muted)">Yes. You can sideload the JARVIS iOS app (<code>Jarvis.ipa</code>) to view the live desktop screen at 24 fps, dispatch voice commands, approve security prompts, and operate your computer remotely over LAN or Tailscale.</p>
+      </details>
     </div>
   </div>
 </section>
